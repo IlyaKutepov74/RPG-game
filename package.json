@@ -1,7 +1,7 @@
 {
   "name": "rpg-game",
   "version": "1.0.0",
-  "description": "Игра в жанре RPG на Javascript",
+  "description": "Игра в жанре RPG на JavaScript",
   "keywords": [
     "rpg",
     "game",
@@ -20,6 +20,21 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
+    "build": "babel src -d dist",
+    "lint": "eslint .",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.29.7",
+    "@babel/core": "^7.29.7",
+    "@babel/preset-env": "^7.29.7",
+    "@eslint/eslintrc": "^3.3.5",
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.4.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.32.0"
+  },
+  "dependencies": {
+    "core-js": "^3.49.0"
   }
 }
