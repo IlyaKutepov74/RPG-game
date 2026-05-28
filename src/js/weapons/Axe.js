@@ -1,4 +1,4 @@
-import Sword from './Sword';
+﻿import Sword from './Sword';
 
 export default class Axe extends Sword {
   constructor() {

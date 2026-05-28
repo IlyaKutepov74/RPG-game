@@ -1,4 +1,4 @@
-export default class Weapon {
+﻿export default class Weapon {
   constructor(name, attack, durability, range) {
     this.name = name;
     this.attack = attack;

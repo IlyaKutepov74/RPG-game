@@ -1,9 +1,24 @@
-const characters = [
-  { name: 'warrior', health: 10 },
-  { name: 'mage', health: 100 },
-  { name: 'mage', health: 0 },
-  { name: 'archer', health: 0 },
-];
+﻿export default function play(players) {
+  let gameOver = false;
+  const maxTurns = 100;
+  let turnCount = 0;
 
-const alive = characters.filter((item) => item.health > 0);
-console.log(alive);
+  while (!gameOver && turnCount < maxTurns) {
+    players.forEach(player => {
+      if (player.isDead()) {
+        return;
+      }
+      player.turn(players);
+      const alivePlayers = players.filter(p => !p.isDead());
+      if (alivePlayers.length === 1) {
+        console.log('Winner: ' + alivePlayers[0].description + ' ' + alivePlayers[0].name + '!');
+        gameOver = true;
+      }
+    });
+    turnCount++;
+  }
+
+  if (!gameOver) {
+    console.log('Game over: max turns reached. Draw!');
+  }
+}
