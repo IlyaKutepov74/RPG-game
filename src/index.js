@@ -1,4 +1,4 @@
-﻿import './css/style.css';
+import './css/style.css';
 import play from './js/game';
 import Warrior from './js/players/Warrior';
 import Archer from './js/players/Archer';

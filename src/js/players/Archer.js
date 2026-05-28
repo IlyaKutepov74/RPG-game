@@ -1,4 +1,4 @@
-﻿import Player from './Player';
+import Player from './Player';
 import Bow from '../weapons/Bow';
 import Knife from '../weapons/Knife';
 import Arm from '../weapons/Arm';
@@ -19,7 +19,7 @@ export default class Archer extends Player {
       return 0;
     }
     const weaponDamage = this.weapon.getDamage();
-    return (this.attack + weaponDamage) * this.getLuck() * distance / this.weapon.range;
+    return ((this.attack + weaponDamage) * this.getLuck() * distance) / this.weapon.range;
   }
 
   checkWeapon() {

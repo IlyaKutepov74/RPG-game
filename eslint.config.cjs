@@ -13,6 +13,17 @@ module.exports = [
       'linebreak-style': 'off',
       'eol-last': 'off',
       'import/no-extraneous-dependencies': 'off',
+      'class-methods-use-this': 'off',
+    },
+  },
+  {
+    files: ['**/*.test.js'],
+    languageOptions: {
+      globals: {
+        describe: 'readonly',
+        test: 'readonly',
+        expect: 'readonly',
+      },
     },
   },
 ];

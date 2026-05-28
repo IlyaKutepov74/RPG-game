@@ -1,24 +1,36 @@
-﻿export default function play(players) {
-  let gameOver = false;
+export default function play(players) {
   const maxTurns = 100;
   let turnCount = 0;
 
-  while (!gameOver && turnCount < maxTurns) {
-    players.forEach(player => {
-      if (player.isDead()) {
-        return;
+  while (turnCount < maxTurns) {
+    // Сначала считаем живых и определяем, не закончилась ли игра
+    let aliveCount = 0;
+    let alivePlayer = null;
+    for (let i = 0; i < players.length; i += 1) {
+      if (!players[i].isDead()) {
+        aliveCount += 1;
+        alivePlayer = players[i];
       }
-      player.turn(players);
-      const alivePlayers = players.filter(p => !p.isDead());
-      if (alivePlayers.length === 1) {
-        console.log('Winner: ' + alivePlayers[0].description + ' ' + alivePlayers[0].name + '!');
-        gameOver = true;
+    }
+    if (aliveCount === 1) {
+      console.log(`Winner: ${alivePlayer.description} ${alivePlayer.name}!`);
+      return;
+    }
+    if (aliveCount === 0) {
+      console.log('Game over: no players left. Draw!');
+      return;
+    }
+
+    // Каждый живой игрок делает ход
+    for (let i = 0; i < players.length; i += 1) {
+      const player = players[i];
+      if (!player.isDead()) {
+        player.turn(players);
       }
-    });
-    turnCount++;
+    }
+
+    turnCount += 1;
   }
 
-  if (!gameOver) {
-    console.log('Game over: max turns reached. Draw!');
-  }
+  console.log('Game over: max turns reached. Draw!');
 }

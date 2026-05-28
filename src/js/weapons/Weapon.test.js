@@ -31,7 +31,7 @@ describe('Weapon', () => {
     expect(weapon.getDamage()).toBe(20);
     weapon.takeDamage(6);
     expect(weapon.durability).toBe(4);
-    expect(weapon.getDamage()).toBe(20); // 4/10 = 40% > 30%
+    expect(weapon.getDamage()).toBe(20);
   });
 
   test('getDamage should return half attack if durability < 30%', () => {

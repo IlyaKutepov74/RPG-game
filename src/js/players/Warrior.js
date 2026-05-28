@@ -1,4 +1,4 @@
-﻿import Player from './Player';
+import Player from './Player';
 import Sword from '../weapons/Sword';
 import Knife from '../weapons/Knife';
 import Arm from '../weapons/Arm';

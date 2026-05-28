@@ -1,4 +1,4 @@
-﻿import Arm from '../weapons/Arm';
+import Arm from '../weapons/Arm';
 
 export default class Player {
   constructor(position, name) {
@@ -24,7 +24,7 @@ export default class Player {
       return 0;
     }
     const weaponDamage = this.weapon.getDamage();
-    return (this.attack + weaponDamage) * this.getLuck() / distance;
+    return ((this.attack + weaponDamage) * this.getLuck()) / distance;
   }
 
   takeDamage(damage) {
@@ -75,8 +75,7 @@ export default class Player {
   }
 
   checkWeapon() {
-    if (this.weapon.isBroken()) {
-    }
+    // to be overridden in subclasses
   }
 
   tryAttack(enemy) {
@@ -95,7 +94,7 @@ export default class Player {
   }
 
   chooseEnemy(players) {
-    const enemies = players.filter(p => p !== this && !p.isDead());
+    const enemies = players.filter((p) => p !== this && !p.isDead());
     if (enemies.length === 0) {
       return null;
     }

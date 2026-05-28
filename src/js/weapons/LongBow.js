@@ -1,4 +1,4 @@
-﻿import Bow from './Bow';
+import Bow from './Bow';
 
 export default class LongBow extends Bow {
   constructor() {
